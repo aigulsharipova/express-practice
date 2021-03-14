@@ -5,9 +5,18 @@
     <meta name="viewport" 
     	content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>First Express</title>
+    <title>First Express View</title>
 </head>
 <body>
-    <h1>Home Page</h1>
+  <h1>Todos</h1>
+  <ul>
+    <% todos.forEach(function(todo) { %>
+      <li>
+        <%= todo.text %>
+          - 
+        <%= todo.done ? 'done' : 'not done' %>
+      </li>
+    <% }); %>
+  </ul>
 </body>
 </html>
