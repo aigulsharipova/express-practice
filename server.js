@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+// require the todo "database"
+const todoDb = require('./data/todo-db');
+
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
@@ -14,6 +17,12 @@ app.get('/home', function(req, res) {
 
 app.get('/api', function(req, res) {
   res.json({ fruits: ['oranges', 'bananas', 'mango'] });
+});
+
+app.get('/todos', function(req, res) {
+  res.render('todos/index', {
+   todos: todoDb.getAll()
+  });
 });
 
 app.listen(3000, function () {
